@@ -59,6 +59,7 @@ export const setTokenTimestamp = (data) => {
 
 export const shouldRefreshToken = () => {
   return !!localStorage.getItem("refreshTokenTimestamp");
+  // double !!, token will be refreshed only for a logged in user
 };
 
 export const removeTokenTimestamp = () => {
