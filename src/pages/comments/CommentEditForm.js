@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-
 import styles from "../../styles/CommentCreateEditForm.module.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
+  const [showToast, setShowToast] = useState(false);
 
   const handleChange = (event) => {
     setFormContent(event.target.value);
@@ -33,39 +34,48 @@ function CommentEditForm(props) {
         }),
       }));
       setShowEditForm(false);
+      setShowToast(true); // show the toast after successful update
     } catch (err) {
       // console.log(err);
     }
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="pr-1">
-        <Form.Control
-          className={styles.Form}
-          as="textarea"
-          value={formContent}
-          onChange={handleChange}
-          rows={2}
-        />
-      </Form.Group>
-      <div className="text-right">
-        <button
-          className={styles.Button}
-          onClick={() => setShowEditForm(false)}
-          type="button"
-        >
-          cancel
-        </button>
-        <button
-          className={styles.Button}
-          disabled={!content.trim()}
-          type="submit"
-        >
-          save
-        </button>
-      </div>
-    </Form>
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="pr-1">
+          <Form.Control
+            className={styles.Form}
+            as="textarea"
+            value={formContent}
+            onChange={handleChange}
+            rows={2}
+          />
+        </Form.Group>
+        <div className="text-right">
+          <button
+            className={styles.Button}
+            onClick={() => setShowEditForm(false)}
+            type="button"
+          >
+            cancel
+          </button>
+          <button
+            className={styles.Button}
+            disabled={!content.trim()}
+            type="submit"
+          >
+            save
+          </button>
+        </div>
+      </Form>
+      <ToastContainer />
+      {showToast && (
+        <ToastContainer autoClose={3000}>
+          <toast>Comment updated!</toast>
+        </ToastContainer>
+      )}
+    </>
   );
 }
 

@@ -8,9 +8,6 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
@@ -38,8 +35,7 @@ function CommentCreateForm(props) {
           },
         ],
       }));
-      setContent("");
-      toast.success("Comment created successfully!");
+      setContent("");      
     } catch (err) {
       // console.log(err);
     }
@@ -71,7 +67,6 @@ function CommentCreateForm(props) {
           post
         </button>
       </Form>
-      <ToastContainer />
     </>
   );
 }
