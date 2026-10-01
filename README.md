@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Voyage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Português (Brasil)](README.pt-BR.md) | **English**
 
-## Available Scripts
+A social media app to post about your travels and get inspired by your friends' adventures.
 
-In the project directory, you can run:
+**Source:** public repository. Documentation reviewed on 2026-10-01.
 
-### `npm start`
+## Status
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Study project from the Code Institute Full Stack course period (last commits in 2023). The previous README was the unchanged Create React App template text; it was replaced by this document on 2026-10-01. The project is not currently deployed at a known public URL.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Purpose
 
-### `npm test`
+Voyage is the front-end of a travel photo-sharing app: users post about their trips and follow each other's adventures, in the style of the course's "Moments" walkthrough (the package name is still `moments`). The matching API for projects of this stack is a Django REST Framework backend; this repository contains only the React front-end.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech stack
 
-### `npm run build`
+From `package.json`:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React 18 with `react-scripts` (Create React App) and React Router
+- React Bootstrap and Bootstrap
+- Axios for API calls, `jwt-decode` for token handling
+- `react-infinite-scroll-component`, `react-toastify`
+- Testing Library (jest-dom, react, user-event)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Run locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+npm start
+```
 
-### `npm run eject`
+Opens on `http://localhost:3000`. A running backend API is needed for real data. Other scripts: `npm test`, `npm run build`. A `heroku-prebuild` script remains from the original Heroku deployment setup; no current deployment is verified.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Development record
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The exact feature set and original planning notes were not reconstructed during this documentation update, and no process history is invented here. Git history is the source for implementation details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Testing Library dependencies are present, but the test suite was not run in this update. Before any reuse, run `npm install` and `npm test` and check the app against a live backend.
 
-## Learn More
+## Credits and license status
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Bootstrapped with Create React App and based on the Code Institute "Moments" walkthrough template. No `LICENSE` file was found at the repository root during this review; third-party template code retains its original terms, and this update does not apply a new license to them.
